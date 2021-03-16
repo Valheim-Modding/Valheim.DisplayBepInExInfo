@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Valheim.DisplayBepInExInfo
 {
-    [BepInPlugin("org.bepinex.valheim.displayinfo", "Display BepInEx Info In-Game", "1.0.0")]
+    [BepInPlugin("org.bepinex.valheim.displayinfo", "Display BepInEx Info In-Game", "1.0.1")]
     public class DisplayInfoPlugin : BaseUnityPlugin
     {
         internal static ConfigEntry<LogLevel> LogLevels;
@@ -61,6 +61,29 @@ namespace Valheim.DisplayBepInExInfo
                 return;
             var setTitle = AccessTools.MethodDelegate<Action<string>>(AccessTools.Method(cm, "SetConsoleTitle"));
             setTitle($"BepInEx {BepInExVersion} - Valheim Server - {serverName}");
+        }
+
+        [HarmonyPatch(typeof(Console), nameof(Console.Awake))]
+        [HarmonyPostfix]
+        private static void FixConsoleMesh()
+        {
+            if (Console.instance && Console.instance.m_chatWindow.gameObject)
+            {
+                foreach (var outline in Console.instance.m_chatWindow.gameObject.GetComponentsInChildren<Outline>())
+                {
+                    outline.enabled = false;
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(Console), nameof(Console.UpdateChat))]
+        [HarmonyPostfix]
+        private static void FixConsoleMesh2()
+        {
+            if (Console.instance.m_output.text.Length > 6000)
+            {
+                Console.instance.m_chatBuffer.Clear();
+            }
         }
     }
 }
