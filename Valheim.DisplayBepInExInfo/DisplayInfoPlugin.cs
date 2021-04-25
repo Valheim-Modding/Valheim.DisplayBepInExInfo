@@ -47,7 +47,9 @@ namespace Valheim.DisplayBepInExInfo
             var text = bepinGo.AddComponent<Text>();
             text.font = Font.CreateDynamicFontFromOSFont("Arial", 20);
             text.text =
-                $"Running BepInEx {BepInExVersion}\n{Chainloader.PluginInfos.Count} plugins loaded\nPress F5 to open console";
+                $"Running BepInEx {BepInExVersion}\n{Chainloader.PluginInfos.Count} plugins loaded";
+            if(Console.instance.IsConsoleEnabled())
+                text.text += "\nPress F5 to open console";
             text.color = Color.white;
             text.fontSize = 20;
         }
