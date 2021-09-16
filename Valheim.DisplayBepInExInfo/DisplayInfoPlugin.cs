@@ -65,20 +65,22 @@ namespace Valheim.DisplayBepInExInfo
             setTitle($"BepInEx {BepInExVersion} - Valheim Server - {serverName}");
         }
 
-        [HarmonyPatch(typeof(Console), nameof(Console.Awake))]
+        [HarmonyPatch(typeof(Terminal), nameof(Terminal.Awake))]
         [HarmonyPostfix]
         private static void FixConsoleMesh()
         {
             if (Console.instance && Console.instance.m_chatWindow.gameObject)
             {
-                foreach (var outline in Console.instance.m_chatWindow.gameObject.GetComponentsInChildren<Outline>())
+                var chatWindowGameObject = Console.instance.m_chatWindow.gameObject;
+                var outlines = chatWindowGameObject.GetComponentsInChildren<Outline>();
+                foreach (var outline in outlines)
                 {
                     outline.enabled = false;
                 }
             }
         }
 
-        [HarmonyPatch(typeof(Console), nameof(Console.UpdateChat))]
+        [HarmonyPatch(typeof(Terminal), nameof(Terminal.UpdateChat))]
         [HarmonyPostfix]
         private static void FixConsoleMesh2()
         {
