@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net40</TargetFramework>
@@ -27,13 +27,10 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+      <PackageReference Include="Valheim.GameLibs" Version="0.202.14-r.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="assembly_valheim, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\lib\assembly_valheim.dll</HintPath>
-            <Private>False</Private>
-        </Reference>
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\lib\UnityEngine.dll</HintPath>
             <Private>False</Private>
