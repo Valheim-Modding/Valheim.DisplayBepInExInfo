@@ -30,6 +30,8 @@ namespace Valheim.DisplayBepInExInfo
                 BepInEx.Logging.Logger.Listeners.Add(new ValheimConsoleListener());
 
             Harmony.CreateAndPatchAll(typeof(DisplayInfoPlugin));
+
+            Traverse.Create<Game>().Field<bool>("isModded").Value = true;
         }
 
         [HarmonyPatch(typeof(FejdStartup), "Start")]

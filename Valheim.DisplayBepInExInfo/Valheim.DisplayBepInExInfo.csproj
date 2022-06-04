@@ -3,9 +3,9 @@
     <PropertyGroup>
         <TargetFramework>net40</TargetFramework>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <Version>2.0.0</Version>
-        <AssemblyVersion>2.0.0.0</AssemblyVersion>
-        <FileVersion>2.0.0.0</FileVersion>
+        <Version>2.1.0</Version>
+        <AssemblyVersion>2.1.0.0</AssemblyVersion>
+        <FileVersion>2.1.0.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -22,7 +22,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="BepInEx.Core" Version="5.4.15" IncludeAssets="compile" />
+        <PackageReference Include="BepInEx.Core" Version="5.4.19" IncludeAssets="compile" />
         <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.10.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
