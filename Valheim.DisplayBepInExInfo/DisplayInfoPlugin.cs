@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Valheim.DisplayBepInExInfo
 {
-    [BepInPlugin("org.bepinex.valheim.displayinfo", "Display BepInEx Info In-Game", "2.0.0")]
+    [BepInPlugin("org.bepinex.valheim.displayinfo", "Display BepInEx Info In-Game", "2.0.1")]
     public class DisplayInfoPlugin : BaseUnityPlugin
     {
         internal static ConfigEntry<LogLevel> LogLevels;
