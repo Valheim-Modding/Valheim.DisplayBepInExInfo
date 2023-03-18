@@ -31,7 +31,7 @@
 
     <ItemGroup>
         <Reference Include="assembly_valheim">
-            <HintPath>..\lib\0.214.2\assembly_valheim_publicized.dll</HintPath>
+            <HintPath>..\lib\0.214.3\assembly_valheim_publicized.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="Unity.TextMeshPro">
